@@ -25,6 +25,8 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
+      - name: Clone melody
+        run: git clone -b master https://github.com/Molunerfinn/hexo-theme-melody themes/melody
       - name: Build
         run: npm run build
       - name: Deploy
