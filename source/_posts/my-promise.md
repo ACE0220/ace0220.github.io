@@ -3,7 +3,6 @@ title: 手写Promise
 categories:
   - Web
   - JavaScript
-  - Promise
 date: 2020-10-01 14:09:00
 ---
 
