@@ -150,3 +150,7 @@ class RoutesLoader {
 export default RoutesLoader.getInstance();
 
 ```
+
+## demo
+
+[跳转github打开clone demo运行](https://github.com/ACE0220/blog-demos/tree/main/infrastructure/back-end/koa-routes-loader)
