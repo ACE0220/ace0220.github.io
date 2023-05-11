@@ -2,12 +2,12 @@
 title: javascript中的内存管理
 date: 2020-11-02 18:32:30
 categories:
-  - Web
-  - JavaScript
+  - web
+  - javascript
 tags:
   - web
-  - JavaScript
-  - memory management
+  - javascript
+  - memory
 ---
 
 w3c中javascript的内存管理

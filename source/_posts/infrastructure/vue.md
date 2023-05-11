@@ -2,11 +2,13 @@
 title: vue项目的基础设施搭建（一）
 date: 2021-02-05 18:02:30
 categories:
-  - Web
+  - web
   - infrastructure
+  - vue
 tags:
   - web
   - infrastructure
+  - vue
 ---
 
 vue3 + typescript + eslint + husky + pnpm
@@ -371,7 +373,7 @@ pnpm lint:fix
 生效的前提是必须去vscode的扩展商店安装eslint插件
 
 ```json
-// .vscode/setting.json
+// .vscode/settings.json
 {
   "update.enableWindowsBackgroundUpdates": false,
   "editor.codeActionsOnSave": {

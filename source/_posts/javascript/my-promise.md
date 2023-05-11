@@ -1,8 +1,12 @@
 ---
 title: 手写Promise
 categories:
-  - Web
-  - JavaScript
+  - web
+  - javascript
+tags:
+  - web
+  - javascript
+  - async
 date: 2020-10-01 14:09:00
 ---
 
