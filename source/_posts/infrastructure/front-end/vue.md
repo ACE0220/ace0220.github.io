@@ -4,11 +4,17 @@ date: 2021-02-05 18:02:30
 categories:
   - web
   - infrastructure
-  - vue
+  - front-end
 tags:
   - web
   - infrastructure
-  - vue
+  - front-end
+  - 前端
+  - vue3
+  - typescipt
+  - eslint
+  - husky
+  - pnpm
 ---
 
 vue3 + typescript + eslint + husky + pnpm

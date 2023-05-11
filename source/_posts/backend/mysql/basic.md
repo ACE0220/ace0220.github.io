@@ -165,9 +165,9 @@ mysql -u root -p
 
 ## mysql 基本操作
 
-操作需要第四步成功登录 mysql 之后
+操作需要成功登录 mysql 之后
 
-显示所有数据库
+### 显示所有数据库
 
 ```sh
 show databases;
@@ -335,6 +335,14 @@ Query OK, 2 rows affected (0.05 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 ```
 
+### 更新一行数据
+
+```sh
+mysql> update userinfo set age=56 where userid=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+```
+
 ## mysql 数据类型
 
 ### 字符类型
@@ -360,3 +368,113 @@ Records: 2  Duplicates: 0  Warnings: 0
 
 - date：3 byte 记录的是年月日
 - datetime：8 byte 年月日时分秒
+
+## 数据库查询
+
+### 查询所有行
+
+select * from \<table name\>
+
+```sh
+mysql> select * from userinfo;
++--------+-----------+-----------+---------------+-------+---------------------+
+| userid | username  | password  | address       | valid | birth               |
++--------+-----------+-----------+---------------+-------+---------------------+
+|      1 | username1 | 123123    | guangzhou     |     1 | 1989-01-01 01:01:01 |
+|      2 | user2     | 123123123 | empty address |     1 | 1989-01-01 01:01:01 |
++--------+-----------+-----------+---------------+-------+---------------------+
+2 rows in set (0.02 sec)
+```
+
+### 投影查询，即查询局部字段
+
+需要查询多个字段可以使用逗号分隔
+
+select address from userinfo;
+select userid,username from userinfo;
+
+```sh
+mysql> select userid,username from userinfo;
++--------+-----------+
+| userid | username  |
++--------+-----------+
+|      1 | username1 |
+|      2 | user2     |
++--------+-----------+
+2 rows in set (0.00 sec)
+```
+
+### 字段别名设置
+
+select userid,username as un, address as addr from userinfo;
+
+通过关键字as，将username设置为别名un，address设置为addr
+
+这种别名设置是临时的，并不会改动原有字段名
+
+```sh
+mysql> select userid,username as un, address as addr from userinfo;
++--------+-----------+---------------+
+| userid | un        | addr          |
++--------+-----------+---------------+
+|      1 | username1 | guangzhou     |
+|      2 | user2     | empty address |
++--------+-----------+---------------+
+2 rows in set (0.00 sec)
+```
+
+### limit查询
+
+**注意：mysql的位置是从0开始，与我们大部分编程语言中的索引是一样的**
+
+**注意：mysql的位置是从0开始，与我们大部分编程语言中的索引是一样的**
+
+**注意：mysql的位置是从0开始，与我们大部分编程语言中的索引是一样的**
+
+limit是mysql中的一个特殊关键字，有三种使用方式
+
+- limit 记录数, 从第一条开始查询 select * from userinfo limit 1;
+- limit 起始位置，记录数  select * from userinfo limit 1,1;
+- limit 记录数 offset 偏移 select * from userinfo limit 1 offset 1;
+
+方式二和三的结果是一样的
+
+```sh
+mysql> select * from userinfo limit 2,3;
+mysql> select * from userinfo limit 3 offset 2;
+
++--------+----------+----------+-----------+-------+---------------------+
+| userid | username | password | address   | valid | birth               |
++--------+----------+----------+-----------+-------+---------------------+
+|      3 | user3    | 123123   | guangzhou |     1 | 1989-01-01 01:01:01 |
+|      4 | user4    | 123123   | guangzhou |     1 | 1989-01-01 01:01:01 |
+|      5 | user5    | 123123   | guangzhou |     1 | 1989-01-01 01:01:01 |
++--------+----------+----------+-----------+-------+---------------------+
+3 rows in set (0.00 sec)
+```
+
+### 条件查询
+
+- and 并查询 select * from userinfo where username='user2' and password='123123';
+- or 或查询 select * from userinfo where username='user2' or password='123123';
+- between 区间查询 select * from userinfo where age between 30 and 35;
+- in 子查询,只会查询in里面的条件，30岁和35岁，31-34不算在内 select * from userinfo where age in(30,35);
+- is null 空查询 select * in userinfo where address is null;
+- like 模糊查询 % 代表1个或者多个
+  - select * from userinfo where username like '%us';  us在后面
+  - select * from userinfo where username like 'us%';  us在前面
+  - select * from userinfo where username like '%us%'; us在任何位置
+  - select * from userinfo where username like '__us'; us前面必须有两个字符
+  - select * from userinfo where username like binary '__Us'; 区分大小写
+
+示例
+
+```sh
+mysql> select * from userinfo where username='user3' and password='123123';
++--------+----------+----------+-----------+-------+---------------------+
+| userid | username | password | address   | valid | birth               |
++--------+----------+----------+-----------+-------+---------------------+
+|      3 | user3    | 123123   | guangzhou |     1 | 1989-01-01 01:01:01 |
++--------+----------+----------+-----------+-------+---------------------+
+1 row in set (0.00 sec)
+```

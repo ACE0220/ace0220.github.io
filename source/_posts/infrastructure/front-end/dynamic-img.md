@@ -4,9 +4,13 @@ date: 2021-02-25 18:02:30
 categories:
   - web
   - infrastructure
+  - front-end
 tags:
   - web
   - infrastructure
+  - front-end
+  - 前端
+  - 动态图片管理
 ---
 
 为什么要采取动态图片管理方案
