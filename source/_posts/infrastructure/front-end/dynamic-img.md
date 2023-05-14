@@ -4,11 +4,11 @@ date: 2021-02-25 18:02:30
 categories:
   - web
   - infrastructure
-  - front-end
+  - frontend
 tags:
   - web
   - infrastructure
-  - front-end
+  - frontend
   - 前端
   - 动态图片管理
 ---

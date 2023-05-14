@@ -4,11 +4,11 @@ date: 2021-02-05 18:02:30
 categories:
   - web
   - infrastructure
-  - front-end
+  - frontend
 tags:
   - web
   - infrastructure
-  - front-end
+  - frontend
   - 前端
   - vue3
   - typescipt

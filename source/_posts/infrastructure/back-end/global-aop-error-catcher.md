@@ -4,11 +4,11 @@ date: 2021-03-17 09:29:12
 categories:
   - web
   - infrastructure
-  - back-end
+  - backend
 tags:
   - web
   - infrastructure
-  - back-end
+  - backend
   - 后端
   - aop
   - error catcher
@@ -87,7 +87,7 @@ app.use(router.routes());
 
 ### demo
 
-github demo: https://github.com/ACE0220/blog-demos/tree/main/infrastructure/back-end/global-error-aop
+github demo: https://github.com/ACE0220/blog-demos/tree/main/infrastructure/backend/global-error-aop
 
 运行：pnpm dev:onion
 
@@ -114,6 +114,6 @@ export default async function globalException(ctx: Koa.Context, next: Koa.Next) 
 
 ### demo
 
-github demo: https://github.com/ACE0220/blog-demos/tree/main/infrastructure/back-end/global-error-aop
+github demo: https://github.com/ACE0220/blog-demos/tree/main/infrastructure/backend/global-error-aop
 
 运行：pnpm dev:ge

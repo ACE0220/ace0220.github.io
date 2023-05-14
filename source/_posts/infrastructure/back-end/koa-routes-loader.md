@@ -4,11 +4,11 @@ date: 2021-03-08 14:03:23
 categories:
   - web
   - infrastructure
-  - back-end
+  - backend
 tags:
   - web
   - infrastructure
-  - back-end
+  - backend
   - 后端
   - router
   - loader
@@ -153,4 +153,4 @@ export default RoutesLoader.getInstance();
 
 ## demo
 
-[跳转github打开clone demo运行](https://github.com/ACE0220/blog-demos/tree/main/infrastructure/back-end/koa-routes-loader)
+[跳转github打开clone demo运行](https://github.com/ACE0220/blog-demos/tree/main/infrastructure/backend/koa-routes-loader)
