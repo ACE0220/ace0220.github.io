@@ -273,8 +273,8 @@ footer_custom_text: hitokoto
 
 ICP:
   enable: true
-  text: 备案号xxxxx
-  url: http://www.w3school.com.cn
+  text: 粤ICP备2023054092号
+  url: https://beian.miit.gov.cn
 
 # busuanzi count for PV / UV in site
 busuanzi:

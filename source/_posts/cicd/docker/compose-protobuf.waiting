@@ -1,0 +1,41 @@
+---
+title: 构建自己的docker镜像
+categories:
+  - cicd
+  - docker
+tags:
+  - microservice
+  - node
+  - docker
+  - protobuffer
+  - web
+  - compose
+date: 2021-05-01 21:53:00
+---
+
+在现有cicd的流程中，一般是通过Dockerfile去将生产代码绑定到镜像中，由于docker的沙箱能安全的隔离环境，更加能保证代码运行环境的一致性。
+
+<!-- more -->
+
+如果没了解或者没用过docker的，建议先看[一些入门教程](https://www.runoob.com/docker/docker-tutorial.html)或者看[官方文档，点击打开](https://docs.docker.com/get-started/)
+
+# Dockerfile
+
+## Dockerfile是什么
+
+Dockerfile 是用于构建镜像的配置文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+
+## Dockerfile部分指令简介
+
+- FROM指令：用于指定我们的镜像基于哪个基础镜像，本文中的基础镜像是node（笔者的电脑是mac m1，所以用的基础镜像arm64v8/node）
+- COPY指令: 从上下文目录中复制文件或目录到容器里指定路径。(上下文目录，即当前执行环境中相对或绝对目录，例如，在mac中执行构建镜像，那么上下文目录就是在mac中目录)
+  - COPY [--chown=<user>:<group>] <源路径1>...  <目标路径>
+  - [--chown=<user>:<group>]：可选参数，用户改变复制到容器内文件的拥有者和属组
+- RUN指令：用于执行后面跟着的命令行命令。有俩种格式
+  - RUN <命令行命令> eg. RUN "node -v" 等价于在终端输入 node -v
+  - RUN ["可执行文件", "参数1", "参数2"] eg. RUN ['node', '-v']
+- CMD指令：与RUN指令类似，执行时机不同
+  - RUN 运行在docker build阶段（构建过程中执行）
+  - CMD 运行在docker run阶段（开始运行容器执行）
+- VOLUME指令：定义要挂在的数据卷，在docker run的时候可以通过-v指定容器的数据卷挂载在宿主机的哪个目录，如果没有特别指定，会挂载在匿名卷中，避免数据丢失
+
