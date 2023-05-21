@@ -13,7 +13,7 @@
 <span id="more"></span>
 
 <h1 id="本文需求"><a href="#本文需求" class="headerlink" title="本文需求"></a>本文需求</h1><p>基于docker和grpc构建一个可以批量转换proto文件，生成typescript文件的一个镜像。</p>
-<p>@tecace&#x2F;ts-proto-batch: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@tecace/ts-proto-batch">https://www.npmjs.com/package/@tecace/ts-proto-batch</a>  github: <a target="_blank" rel="noopener" href="https://github.com/ACE0220/ts-proto-batch">https://github.com/ACE0220/ts-proto-batch</a></p>
+<p>@tecace&#x2F;ts-proto-batch: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@tecace/ts-proto-batch">https://www.npmjs.com/package/@tecace/ts-proto-batch</a><br>github: <a target="_blank" rel="noopener" href="https://github.com/ACE0220/ts-proto-batch">https://github.com/ACE0220/ts-proto-batch</a> dockerfile和shell脚本位于github内</p>
 <h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><h2 id="Dockerfile是什么"><a href="#Dockerfile是什么" class="headerlink" title="Dockerfile是什么"></a>Dockerfile是什么</h2><p>Dockerfile 是用于构建镜像的配置文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
 <h2 id="Dockerfile部分指令简介"><a href="#Dockerfile部分指令简介" class="headerlink" title="Dockerfile部分指令简介"></a>Dockerfile部分指令简介</h2><ul>
 <li>FROM指令：用于指定我们的镜像基于哪个基础镜像，本文中的基础镜像是node（笔者的电脑是mac m1，所以用的基础镜像arm64v8&#x2F;node）</li>
