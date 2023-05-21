@@ -23,7 +23,9 @@ date: 2021-05-01 21:53:00
 
 基于docker和grpc构建一个可以批量转换proto文件，生成typescript文件的一个镜像。
 
-@tecace/ts-proto-batch: https://www.npmjs.com/package/@tecace/ts-proto-batch  github: https://github.com/ACE0220/ts-proto-batch
+@tecace/ts-proto-batch: https://www.npmjs.com/package/@tecace/ts-proto-batch  
+github: https://github.com/ACE0220/ts-proto-batch dockerfile和shell脚本位于github内
+
 
 # Dockerfile
 
