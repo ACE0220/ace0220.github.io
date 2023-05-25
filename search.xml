@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>github-page部署https</title>
+      <link href="/gh/deploy-https/"/>
+      <url>/gh/deploy-https/</url>
+      
+        <content type="html"><![CDATA[<p>个人域名接入github，强制使用https。</p><span id="more"></span><h1 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h1><p>在做以下事情之前，先要保证username.github.io是可以正常访问的，也就是用户的github-page要可以正常访问</p><p>在github page部署个人blog也很多教程了，这里不再细说。</p><h2 id="个人域名"><a href="#个人域名" class="headerlink" title="个人域名"></a>个人域名</h2><p>个人购买域名可以通过各个服务商进行购买，阿里云、腾讯云、华为云等等，并且网上也很多教程，这里不再细说了。</p><h2 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h2><p>笔者的blog是基于<a href="https://molunerfinn.com/hexo-theme-melody-doc/zh-Hans/">hexo-theme-melody</a></p><p>CNAME文件需要放在source下，在github action部署的时候会自动将CNAME部署到gh-page分支</p><h3 id="CNAME文件内容"><a href="#CNAME文件内容" class="headerlink" title="CNAME文件内容"></a>CNAME文件内容</h3><p>在source下创建CNAME文件，写入域名，yourdomain.cn</p><p><strong>CNAME文件名要大写</strong></p><p><strong>CNAME文件名要大写</strong></p><p><strong>CNAME文件名要大写</strong></p><p>source&#x2F;CNAME</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourdomain.cn</span><br></pre></td></tr></table></figure><h1 id="域名商管理后台修改域名解析"><a href="#域名商管理后台修改域名解析" class="headerlink" title="域名商管理后台修改域名解析"></a>域名商管理后台修改域名解析</h1><p>默认情况下域名是解析到购买的服务器，现在我们要修改到指向username.github.io</p><ul><li>添加一个CNAME，主机记录@，记录值username.github.io</li><li>添加一个CNAME，主机记录www，记录值username.github.io</li></ul><p>这样无论是否使用www，都能正常访问，<a href="http://www.yourdomain.cn/">www.yourdomain.cn</a>, yourdomain.cn，都会先解析成username.github.io，再根据CNAME变回个人域名</p><p><img src="/pics/github/deploy-https-1.png"></p><h1 id="github-setting"><a href="#github-setting" class="headerlink" title="github setting"></a>github setting</h1><p>去github对应的blog仓库内设置个人域名和https事宜</p><p>打开仓库，点击Settings，点击左侧的Pages，找到custom domain，填入个人域名</p><p>如果域名管域名解析那里设置正确，填入个人域名后，稍等一会会显示dns解析正确，就可以勾选Enforce HTTPS了</p><p><img src="/pics/github/deploy-https-2.png"><br><img src="/pics/github/deploy-https-3.png"></p><h1 id="ping-yourdomain-cn"><a href="#ping-yourdomain-cn" class="headerlink" title="ping yourdomain.cn"></a>ping yourdomain.cn</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">64 bytes from xxx.xxx.xxx.xxx: icmp_seq=0 ttl=53 time=99.820 ms</span><br><span class="line">64 bytes from xxx.xxx.xxx.xxx: icmp_seq=1 ttl=53 time=100.451 ms</span><br><span class="line">64 bytes from xxx.xxx.xxx.xxx: icmp_seq=2 ttl=53 time=101.277 ms</span><br><span class="line">64 bytes from xxx.xxx.xxx.xxx: icmp_seq=3 ttl=53 time=109.720 ms</span><br></pre></td></tr></table></figure><p>上方打印的 from xxx.xxx.xxx.xxx，这些xxx代表的是ip地址。</p><p>如果这个ip地址并不是你的服务器地址，并且个人域名可以正常访问，说明配置没有问题了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> github </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github-page </tag>
+            
+            <tag> https </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nest.js 微服务基本入门</title>
       <link href="/microservice/intro-nest/"/>
       <url>/microservice/intro-nest/</url>
