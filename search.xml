@@ -4,6 +4,72 @@
   
     
     <entry>
+      <title>jest基础入门-配置typescript测试</title>
+      <link href="/tests/jest/intro-jest/"/>
+      <url>/tests/jest/intro-jest/</url>
+      
+        <content type="html"><![CDATA[<p>现代前端基本都是基于typescript开发，测试阶段也要同步使用typescript</p><span id="more"></span><h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>github: <a href="https://github.com/ACE0220/blog-demos/tree/main/test-framwork/jest-demo">https://github.com/ACE0220/blog-demos/tree/main/test-framwork/jest-demo</a></p><p>如果对您有帮助，请给个star，谢谢～</p><h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pnpm add jest typescript ts-jest @jest/globals ts-node -D</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">npm install -D jest typescript ts-jest @jest/globals ts-node</span><br></pre></td></tr></table></figure><h2 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a>tsconfig.json</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ES2018&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;module&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ES2020&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rootDir&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./src&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;baseUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./src&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;moduleResolution&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;esModuleInterop&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="jest-config-file"><a href="#jest-config-file" class="headerlink" title="jest config file"></a>jest config file</h2><p>在jest配置文件中，通过ts-jest预设集将esm转换成commonjs语法</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rootdir/jest.config.ts</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">JestConfigWithTsJest</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ts-jest&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">jestConfig</span>: <span class="title class_">JestConfigWithTsJest</span> = &#123;</span><br><span class="line">  <span class="comment">// [...]</span></span><br><span class="line">  <span class="attr">preset</span>: <span class="string">&#x27;ts-jest/presets/default-esm&#x27;</span>,</span><br><span class="line">  <span class="attr">extensionsToTreatAsEsm</span>: [<span class="string">&#x27;.ts&#x27;</span>],</span><br><span class="line">  <span class="attr">moduleNameMapper</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;^(\\.&#123;1,2&#125;/.*)\\.js$&#x27;</span>: <span class="string">&#x27;$1&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">testMatch</span>: [<span class="string">&#x27;**/tests/*.test.ts&#x27;</span>], <span class="comment">// 指定任意文件夹下的test文件夹内的*.test.ts文件，才会被jest运行测试</span></span><br><span class="line">  <span class="attr">transform</span>: &#123;</span><br><span class="line">    <span class="comment">// &#x27;^.+\\.[tj]sx?$&#x27; to process js/ts with `ts-jest`</span></span><br><span class="line">    <span class="comment">// &#x27;^.+\\.m?[tj]sx?$&#x27; to process js/ts/mjs/mts with `ts-jest`</span></span><br><span class="line">    <span class="string">&#x27;^.+\\.tsx?$&#x27;</span>: [</span><br><span class="line">      <span class="string">&#x27;ts-jest&#x27;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">useESM</span>: <span class="literal">true</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> jestConfig;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="测试运行"><a href="#测试运行" class="headerlink" title="测试运行"></a>测试运行</h2><p>在package.json中增加</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest --config jest.config.ts&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>运行测试</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">npm run <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">&gt; jest-demo@1.0.0 <span class="built_in">test</span></span><br><span class="line">&gt; jest --config jest.config.ts</span><br><span class="line"></span><br><span class="line"> PASS  tests/sum.test.ts</span><br><span class="line">  <span class="built_in">sum</span> <span class="built_in">test</span></span><br><span class="line">    ✓ add 1 + 2 to equal 3 (1 ms)</span><br><span class="line"></span><br><span class="line">Test Suites: 1 passed, 1 total</span><br><span class="line">Tests:       1 passed, 1 total</span><br><span class="line">Snapshots:   0 total</span><br><span class="line">Time:        0.688 s, estimated 1 s</span><br><span class="line">Ran all <span class="built_in">test</span> suites.</span><br></pre></td></tr></table></figure><p>配置jest的typescript和esm支持就是这么简单，并没有还多复杂的操作，主要还是工具集的使用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tests </category>
+          
+          <category> jest </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tests </tag>
+            
+            <tag> jest </tag>
+            
+            <tag> e2e </tag>
+            
+            <tag> unit test </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>注册中心consul</title>
+      <link href="/cicd/consul/introduction/"/>
+      <url>/cicd/consul/introduction/</url>
+      
+        <content type="html"><![CDATA[<p>Consul是一种服务网格解决方案，提供具有服务发现，配置和分段等功能。</p><span id="more"></span><h1 id="注册中心consul"><a href="#注册中心consul" class="headerlink" title="注册中心consul"></a>注册中心consul</h1><h2 id="consul的基本介绍"><a href="#consul的基本介绍" class="headerlink" title="consul的基本介绍"></a>consul的基本介绍</h2><p>Consul是一种服务网格解决方案，提供了服务发现，配置和分段功能的全功能控制平台，内置代理，支持开箱即用。</p><h2 id="关键功能"><a href="#关键功能" class="headerlink" title="关键功能"></a>关键功能</h2><ul><li>服务发现：客户端可以注册服务，程序可以轻松找到他们所依赖的服务。</li><li>运行状况检查：consul客户端可以提供任意数量的运行状态检查。</li><li>KV存储：程序将consul的层级key&#x2F;value存储用于任何目的，包括动态配置，功能标记，协调，领导选举等。</li><li>安全的服务通信：可以为服务生成和分发生成TLS证书</li><li>多数据中心：支持多个数据，在不同云平台建立集群，可以完美融合，避免其中一个平台的consul服务器宕机导致全站挂掉。</li></ul><h2 id="多数据中心"><a href="#多数据中心" class="headerlink" title="多数据中心"></a>多数据中心</h2><p><img src="/pics/cicd/consul/intro-1.png"></p><h2 id="架构和协议"><a href="#架构和协议" class="headerlink" title="架构和协议"></a>架构和协议</h2><p>上图中有两个数据中心，数据中心之间通过WAN GOSSIP协议通信</p><p>CLIENT和SERVER之间通过RPC通信，每个数据中心有一个Leader Server</p><p>CLIENT之间通过LAN GOSSIP协议进行通信，进行数据的同步</p><h3 id="注册中心的重要协议"><a href="#注册中心的重要协议" class="headerlink" title="注册中心的重要协议"></a>注册中心的重要协议</h3><ul><li>Gossip Protocol 八卦协议<ul><li>八卦协议，作用如其名，打听其他节点发生了什么事，方便于自身去同步</li></ul></li><li>Raft Protocol 选举协议<ul><li>用于选举出一个leader节点</li></ul></li></ul><h4 id="gossip协议"><a href="#gossip协议" class="headerlink" title="gossip协议"></a>gossip协议</h4><p>局域网池LAN Pool</p><ul><li>让client自动发现server节点，减少所需要的配置量</li><li>分布式故障检测在某几个server机上执行</li><li>能够快速的广播事件</li></ul><p>广域网池WAN Pool</p><ul><li>WAN Pool是全局唯一的</li><li>不同数据中心server都会加入WAN Pool</li><li>允许服务器执行夸数据中心请求</li></ul><h2 id="注册中心consul的主要特性"><a href="#注册中心consul的主要特性" class="headerlink" title="注册中心consul的主要特性"></a>注册中心consul的主要特性</h2><ul><li>服务发现</li><li>健康检查</li><li>键值对存储</li></ul><h3 id="注册中心的访问过程"><a href="#注册中心的访问过程" class="headerlink" title="注册中心的访问过程"></a>注册中心的访问过程</h3><p><img src="/pics/cicd/consul/intro-2.png"></p><h1 id="注册中心的安装"><a href="#注册中心的安装" class="headerlink" title="注册中心的安装"></a>注册中心的安装</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m1</span></span><br><span class="line">docker pull arm64v8/consul:latest</span><br><span class="line"><span class="comment"># other</span></span><br><span class="line">docker pull consul:latest</span><br></pre></td></tr></table></figure><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --name consul-test -p 8500:8500 arm64v8/consul:latest</span><br></pre></td></tr></table></figure><p>浏览器打开localhost:8500</p><ul><li>services 服务，consul本身也计算进服务内</li><li>Nodes 当前所有的节点和健康状态</li><li>key&#x2F;value 键值对存储</li><li>intentions 用于控制服务之间通信流量的一种机制，其作用是限制哪些服务能够相互通信</li></ul><p><img src="/pics/cicd/consul/intro-3.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> cicd </category>
+          
+          <category> consul </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> microservice </tag>
+            
+            <tag> cicd </tag>
+            
+            <tag> service mesh </tag>
+            
+            <tag> consul </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Sequelize基本介绍以及使用</title>
       <link href="/database/orm/sequelize/"/>
       <url>/database/orm/sequelize/</url>
