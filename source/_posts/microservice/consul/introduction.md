@@ -1,7 +1,7 @@
 ---
 title: 注册中心consul
 categories:
-  - cicd
+  - microservice
   - consul
 tags:
   - microservice

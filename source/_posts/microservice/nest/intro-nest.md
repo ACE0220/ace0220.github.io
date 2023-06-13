@@ -2,6 +2,7 @@
 title: nest.js 微服务基本入门
 categories:
   - microservice
+  - nest
 tags:
   - microservice
   - node

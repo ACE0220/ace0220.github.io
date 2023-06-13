@@ -2,9 +2,8 @@
 title: 前端动态图片管理方案
 date: 2021-02-25 18:02:30
 categories:
-  - web
-  - infrastructure
-  - frontend
+  - utils
+  - vue
 tags:
   - web
   - infrastructure

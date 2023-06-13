@@ -2,9 +2,8 @@
 title: koa路由自动加载
 date: 2021-03-08 14:03:23
 categories:
-  - web
-  - infrastructure
-  - backend
+  - utils
+  - node
 tags:
   - web
   - infrastructure

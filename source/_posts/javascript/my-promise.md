@@ -1,7 +1,6 @@
 ---
 title: 手写Promise
 categories:
-  - web
   - javascript
 tags:
   - web

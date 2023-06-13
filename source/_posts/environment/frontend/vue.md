@@ -2,12 +2,10 @@
 title: vue项目的基础设施搭建（一）
 date: 2021-02-05 18:02:30
 categories:
-  - web
-  - infrastructure
+  - environment
   - frontend
 tags:
-  - web
-  - infrastructure
+  - environment
   - frontend
   - 前端
   - vue3

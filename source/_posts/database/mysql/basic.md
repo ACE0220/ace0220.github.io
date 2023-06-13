@@ -2,10 +2,10 @@
 title: mysql 搭建与基础
 date: 2021-03-2 18:02:30
 categories:
-  - backend
+  - database
   - mysql
 tags:
-  - backend
+  - database
   - mysql
 ---
 

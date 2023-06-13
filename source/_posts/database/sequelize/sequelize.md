@@ -2,12 +2,12 @@
 title: Sequelize基本介绍以及使用
 categories:
   - database
-  - orm
+  - sequelize
 tags:
   - mysql
-  - Sequelize
+  - sequelize
   - orm
-date: 2021-06-3 07:53:00
+date: 2021-06-03 07:53:00
 ---
 
 Sequelize 是 nest 官方推荐的开源的 orm 工具之一，支持 PostgreSql, MySql, MongoDB, SQL Server, SQLite 等。

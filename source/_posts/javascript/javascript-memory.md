@@ -2,7 +2,6 @@
 title: javascript中的内存管理
 date: 2020-11-02 18:32:30
 categories:
-  - web
   - javascript
 tags:
   - web
