@@ -1,16 +1,13 @@
 ---
-title: 架构的定义
+title: 测试基础理论
 date: 2021-03-28 09:58:30
 categories:
-  - architecture
+  - testing
 tags:
-  - architecture
-  - backend
-  - frontend
-  - 架构定义
+  - testing
 ---
 
-架构本身的定义和概念，每个人都听过架构，架构本身不同人有不同理解，我们常见的组件化，模块化，系统，子系统，框架等，与架构本身的的关系到底是什么。正确理解架构是基础...
+测试基础理论是测试工作的基础
 
 <!-- more -->
 
