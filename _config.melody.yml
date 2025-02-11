@@ -269,10 +269,10 @@ disqus:
 # ---------------
 since: 2020
 
-footer_custom_text: '<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010402003044" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/pics/beian/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44010402003044号</p></a>'
+footer_custom_text: ''
 
 ICP:
-  enable: true
+  enable: false
   text: 粤ICP备2023054092号
   url: https://beian.miit.gov.cn
 
@@ -350,4 +350,4 @@ qihu_site_verification:
 disable_baidu_transformation: true
 
 # 404 Page SubTitle
-404Text:
+404Text: 哦豁~找不到页面了~
