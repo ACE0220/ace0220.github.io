@@ -91,7 +91,7 @@ fireworks: true
 
 # Analysis
 # ---------------
-baidu_analytics:
+baidu_analytics: 8dce74b15a139a5e13c45ebd78fed47a
 # Format: UA-xxxxxxxxx-x
 # Example: UA-123456789-0
 google_analytics:
@@ -279,17 +279,17 @@ ICP:
 # busuanzi count for PV / UV in site
 busuanzi:
   # count values only if the other configs are false
-  enable: false
+  enable: true
   # custom uv span for the whole site
-  site_uv: false
+  site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
   site_uv_footer:
   # custom pv span for the whole site
-  site_pv: false
+  site_pv: true
   site_pv_header: <i class="fa fa-eye"></i>
   site_pv_footer:
   # custom pv span for one page only
-  page_pv: false
+  page_pv: true
   page_pv_header: <i class="fa fa-file"></i>
   page_pv_footer:
 
@@ -321,9 +321,9 @@ sidebar_display: post # all/index/post/index-none/post-none/hidden
 # ---------------
 # Google Adsense
 google_adsense:
-  enable: false
+  enable: true
   js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client: ca-pub-...........
+  client: ca-pub-4156583000378030
   enable_page_level_ads: true
 
 # Google Webmaster tools verification setting
