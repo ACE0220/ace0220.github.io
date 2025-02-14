@@ -94,7 +94,7 @@ fireworks: true
 baidu_analytics: 8dce74b15a139a5e13c45ebd78fed47a
 # Format: UA-xxxxxxxxx-x
 # Example: UA-123456789-0
-google_analytics:
+google_analytics: G-DPRRDT4EEV
 # Format: G-xxxxxxxxx
 # Example: G-0A12345678
 google_analytics_MeasurementID:
