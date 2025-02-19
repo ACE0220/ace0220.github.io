@@ -31,7 +31,7 @@ tags:
 模型下载以DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf为例子
 
 ollama下载地址：https://ollama.com/
-模型下载：https://huggingface.co/unsloth/DeepSeek-R1-Distill-Llama-8B-GGUF/tree/main
+模型下载：https://huggingface.co/deepseek-ai/DeepSeek-R1
 
 # 三、ollama本地模型配置
 
