@@ -1,12 +1,11 @@
 ---
-title: ollama本地部署deepseek gguf并联网
+title: ollama本地部署deepseek并联网
 date: 2025-2-19 09:58:30
 categories:
   - ai
 tags:
   - ollama
   - deepseek
-  - gguf
 ---
 
 网络上deepseek总是服务器繁忙，基于作者不太需要617B满血版参数(其实是没钱搞)。对于具有独立显卡的较新的笔记本，也是可以部署一下deepseek的。有时候它们或许能给我们也提供一些从未见过的视野和思考方式。
@@ -28,10 +27,9 @@ tags:
 # 二、ollma下载安装和模型下载
 
 使用ollama run命令进行下载，确实是有些不稳定的因素在，还是自行下载再导入吧。
-模型下载以DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf为例子
 
 ollama下载地址：https://ollama.com/
-模型下载：https://huggingface.co/deepseek-ai/DeepSeek-R1
+gguf模型下载：https://huggingface.co/lmstudio-community/DeepSeek-R1-Distill-Qwen-7B-GGUF
 
 # 三、ollama本地模型配置
 
@@ -45,7 +43,7 @@ FROM的值可以是已存在的模型，相对路径，绝对路径，按照自�
 - FROM D:\Users\xxxx\models\xxxxx.gguf 绝对路径
 
 ```
-FROM D:\Users\xxxx\models\DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf
+FROM D:\Users\xxxx\models\DeepSeek-R1-Distill-Qwen-7B-GGUF.gguf
 TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
 
 {{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
@@ -61,14 +59,14 @@ PARAMETER stop "<|reserved_special_token"
 
 # 三、创建模型
 
-输入指令ollama create <模型名称> -f D:\Users\xxxx\models\Modelfile就可以把模型导入Ollama了
+输入指令ollama create <模型名称> -f D:\Users\xxxx\models\Modelfile 就可以把模型导入Ollama了
 
 ```
-$ ollama create DeepSeek-R1-Distill-Llama-8B-Q4_K_M -f D:\Users\xxxx\models\Modelfile
+$ ollama create ds-qwen-7b-q4km -f D:\Users\xxxx\models\Modelfile
 gathering model components
-copying file sha256:f8eba201522ab44b79bc54166126bfaf836111ff4cbf2d13c59c3b57da10573b 100%
+copying file sha256:16bba29e220550acfe6e8981cfd76b607ae00d8568bef711ff6c0455ddb322b8 100%
 parsing GGUF
-using existing layer sha256:f8eba201522ab44b79bc54166126bfaf836111ff4cbf2d13c59c3b57da10573b
+using existing layer sha256:16bba29e220550acfe6e8981cfd76b607ae00d8568bef711ff6c0455ddb322b8
 creating new layer sha256:8ab4849b038cf0abc5b1c9b8ee1443dca6b93a045c2272180d985126eb40bf6f
 creating new layer sha256:c0aac7c7f00d8a81a8ef397cd78664957fbe0e09f87b08bc7afa8d627a8da87f
 writing manifest
@@ -80,7 +78,7 @@ success
 ```
 $ ollama list
 NAME                                          ID              SIZE      MODIFIED
-DeepSeek-R1-Distill-Llama-8B-Q4_K_M:latest    584f5d393f40    4.9 GB    7 seconds ago
+ds-qwen-7b-q4km:latest    584f5d393f40    4.9 GB    7 seconds ago
 ```
 
 # 四、运行并且利用插件进行联网功能
@@ -88,7 +86,7 @@ DeepSeek-R1-Distill-Llama-8B-Q4_K_M:latest    584f5d393f40    4.9 GB    7 second
 先载入模型，首次载入需要点时间，等载入之后就可以输入消息了。
 
 ```
-$ ollama run DeepSeek-R1-Distill-Llama-8B-Q4_K_M
+$ ollama run ds-qwen-7b-q4km
 >>> 你好。请问你是谁？
 </think>
 
@@ -96,7 +94,7 @@ $ ollama run DeepSeek-R1-Distill-Llama-8B-Q4_K_M
 ```
 
 浏览器安装Page Assist - A Web UI for Local AI Models，edge浏览器和chrome都支持，它会检测你本地的ollama和运行中的模型
-作者用edge多，安装地址：https://microsoftedge.microsoft.com/addons/detail/page-assist-a-web-ui-fo/ogkogooadflifpmmidmhjedogicnhooa?hl=zh-CN
+作者edge,安装地址：https://microsoftedge.microsoft.com/addons/detail/page-assist-a-web-ui-fo/ogkogooadflifpmmidmhjedogicnhooa?hl=zh-CN
 
 安装完成后打开插件，选择模型，打开联网开关
 
