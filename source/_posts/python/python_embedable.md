@@ -4,8 +4,9 @@ date: 2024-6-19 09:58:30
 categories:
   - python
 tags:
-  - ollama
-  - deepseek
+  - python
+  - requests
+  - embedable
 ---
 
 Python嵌入式包（embeddable package）是Python的一个特殊版本，通常被称为绿色版或嵌入式版。这个版本的Python是一个ZIP压缩包，解压后包含一个最小的Python运行环境，不包括文档、IDLE、pip等工具。这个版本的主要用途包括嵌入到其他程序中、与系统的Python环境隔离以及方便地分发脚本。
