@@ -1,6 +1,6 @@
 ---
 title: ollama本地部署deepseek并联网
-date: 2025-2-19 09:58:30
+date: 2024-4-19 09:58:30
 categories:
   - ai
 tags:
