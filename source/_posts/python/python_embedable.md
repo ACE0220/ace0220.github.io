@@ -89,10 +89,6 @@ trusted-host=mirrors.aliyun.com
 ```
 
 测试安装requests三方库，在python-3.13.2-embed-amd64文件夹下执行
-参数解释 ：
-- -m pip 以模块的方式运行 pip
-- -t .\python-3.13.2-embed-amd64\Lib\site-packages 指定三方库安装的位置
-
 ```
 .\python.exe -m pip install requests -t .\Lib\site-packages
 Looking in indexes: http://mirrors.aliyun.com/pypi/simple/
@@ -111,6 +107,10 @@ Installing collected packages: urllib3, idna, charset-normalizer, certifi, reque
   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 Successfully installed certifi-2025.1.31 charset-normalizer-3.4.1 idna-3.10 requests-2.32.3 urllib3-2.3.0
 ```
+
+参数解释 ：
+- -m pip 以模块的方式运行 pip
+- -t .\python-3.13.2-embed-amd64\Lib\site-packages 指定三方库安装的位置
 
 查看logs发现我们配置的阿里源是生效的。
 
@@ -147,7 +147,7 @@ settings.json
         "pythonPath": "${workspaceFolder}/python-3.13.2-embed-amd64/python.exe"
     },
     // 第一次加载扩展时要使用的默认 Python 路径，在为工作区选择解释器后不再使用
-    "python.defaultInterpreterPath": "${workspaceFold}/python-3.13.2-embed-amd64/python.exe",
+    "python.defaultInterpreterPath": "${workspaceFolder}/python-3.13.2-embed-amd64/python.exe",
 }
 ```
 
