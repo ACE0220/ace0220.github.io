@@ -1,5 +1,5 @@
 ---
-title: selenium+python+docker搭建自动化测试
+title: selenium+docker搭建grid
 date: 2024-7-20 09:58:30
 categories:
   - testing
