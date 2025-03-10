@@ -63,7 +63,7 @@ aceserver:~/redis/config$ sudo vim redis.conf
 # 用守护线程的方式启动,默认no
 daemonize no
 # 给redis设置密码
-requirepass youpassword
+requirepass yourpassword
 # redis持久化，默认是no
 appendonly no
 # 远程主机检测与客户端的存活时间间隔 默认是300秒
