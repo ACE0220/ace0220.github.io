@@ -10,7 +10,7 @@ tags:
 
 从零开始学python基础，包括类型和变量，字符串和编码，list&tuple，条件判断，模式匹配，循环，dict&set
 
-<more>
+<!-- more -->
 
 # print函数
 
