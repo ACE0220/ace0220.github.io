@@ -76,7 +76,7 @@ tcp-keepalive 300
 # 三、运行容器
 
 ```
-$ sudo docker run -p 6379:6379 --restart=always --name redis_test -v ~/redis/config:/usr/local/etc/redis -v ~/redis/data:/data -v ~/redis/logs:/logs -d redis redis-server /usr/local/etc/redis/redis.conf
+$ sudo docker run -p 6379:6379 --restart=always --name redis2 -v ~/redis/config:/usr/local/etc/redis -v ~/redis/data:/data -v ~/redis/logs:/logs -d redis:7.2.3 redis-server /usr/local/etc/redis/redis.conf --appendonly yes
 ```
 
 参数解释

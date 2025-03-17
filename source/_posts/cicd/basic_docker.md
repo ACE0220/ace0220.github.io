@@ -122,7 +122,7 @@ sudo apt-get update
 2.安装docker的包
 
 ```
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+$ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 ## 3.3 docker源修改
